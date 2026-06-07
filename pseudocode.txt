@@ -1,0 +1,24 @@
+ToDo List con React.js:
+Una aplicación ToDo a la que el usuario puede añadir tareas mediante una entrada controlada. Queremos que:
+
+- Cuando pulse enter dentro del input con una tarea escrita, la tarea se añada a la lista.
+    · Tiene que detectar que se pulsa enter.
+    · Meter la tarea en el array tasks.
+    · Vacíar el valor del input.
+- Cada tarea tenga un icono de eliminar que se muestre solo cuando se pase el ratón por encima de la tarea.
+
+- El usuario puede agregar todas las tareas que quiera.
+
+- Cuando no haya tareas pendientes, la lista debe indicar "No hay tareas, añadir tareas".
+
+- No se puede actualizar una tarea, el usuario tendrá que borrarla y crearla de nuevo.
+
+Estructura:
+
+- Lista de tareas
+    - Tarea + botón borrar
+    - Tarea + botón borrar
+    - ...
+
+- Contador tareas restantes
+
