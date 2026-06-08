@@ -20,15 +20,15 @@ const Todolist = () => {
         setItemsLeft(itemsLeft - 1);
     }
 
-    const tasksList = tasks.map((task, index) => <li key={index} className="task">{task}<span className="close-button" onClick={()=>removeTask(index)}>x</span></li>)
+    const tasksList = tasks.map((task, index) => <li key={index} className="task">{task}<span className="close-button" onClick={() => removeTask(index)}><i class="fa-solid fa-trash-can"></i></span></li>)
 
     return (
         <div className="todo-list">
+            <input type="text" onChange={(ev) => setTaskInputValue(ev.target.value)} onKeyDown={addTask} value={taskInputValue} placeholder="Insert your task" />
             <ul className="list">
-                <input type="text" onChange={(ev) => setTaskInputValue(ev.target.value)} onKeyDown={addTask} value={taskInputValue} />
                 {tasksList}
             </ul>
-            <span className="items-left">{itemsLeft >= 1 ? `${itemsLeft} items left` : "No hay tareas pendientes, por favor añade una tarea"}</span>
+            <span className="items-left">{itemsLeft >= 1 ? `${itemsLeft} items left` : "There is no available tasks, please add one"}</span>
         </div>
     )
 }

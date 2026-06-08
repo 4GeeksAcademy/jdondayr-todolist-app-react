@@ -6,7 +6,7 @@ import Todolist from "./Todolist.jsx";
 const App = () => {
 	return (
 		<div className="main-container">
-			<h1>todos</h1>
+			<h1>to-dos</h1>
 			<Todolist />
 		</div>
 	);
