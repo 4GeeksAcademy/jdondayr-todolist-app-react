@@ -9,6 +9,7 @@ const Todolist = () => {
 
     const addTask = (ev) => {
         if (ev.key === "Enter") {
+            if (tasks.includes(taskInputValue)) return;
             setTasks([...tasks, taskInputValue]);
             setTaskInputValue("");
             setItemsLeft(itemsLeft + 1);
