@@ -16,10 +16,12 @@ h1 {
     text-shadow: 0px 0px 5px #dcdcdc;
 }
 
-.main-container, .todo-list {
+.main-container,
+.todo-list {
     display: flex;
     flex-direction: column;
 }
+
 .main-container {
     margin-top: 7rem;
     align-items: center
@@ -28,13 +30,48 @@ h1 {
 .todo-list {
     width: 50rem;
     background-color: #F8F8F8;
+    border: 1px solid black;
     font-size: 1.5rem;
     padding: 2.5rem;
     align-items: start;
-    box-shadow: 0px 0px 5px 1px #F8F8F8
+    position: relative;
+    transition: all 0.6s ease;
 }
 
-.list {width: 100%;}
+.todo-list::before,
+.todo-list::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    height: 100%;
+    background: #F8F8F8;
+    border: 1px solid black;
+    z-index: -1;
+}
+
+.todo-list::after {
+    bottom: -7.5px;
+    left: 5px;
+    right: 5px;
+    transition: all 1s ease;
+}
+.todo-list::before {
+    bottom: -14px;
+    left: 10px;
+    right: 10px;
+    transition: all 0.5s ease;
+}
+
+.todo-list:hover::after,
+.todo-list:hover::before {
+    bottom: 0px;
+}
+
+
+.list {
+    width: 100%;
+}
 
 .task {
     width: 100%;
@@ -67,8 +104,10 @@ input {
     border: none;
     background-color: #F8F8F8;
     margin-left: 2.5rem;
-    padding-bottom: 0.5rem;;
+    padding-bottom: 0.5rem;
+    ;
 }
+
 input:focus {
     outline: none;
 }
@@ -102,10 +141,15 @@ button:hover {
     color: #F8F8F8;
 }
 
-.task:hover button {opacity: 1}
+.task:hover button {
+    opacity: 1
+}
 
 /* Animación li */
-li {animation: aparecer 0.5s}
+li {
+    animation: aparecer 0.5s
+}
+
 h2 {
     margin-top: 2rem;
     animation: aparecer 0.5s
@@ -116,9 +160,9 @@ h2 {
         opacity: 0;
         translate: 0px -30px;
     }
+
     to {
         opacity: 1;
         translate: 0px 0px;
     }
 }
-
