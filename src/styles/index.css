@@ -5,7 +5,10 @@ body {
     background-color: #23272E;
 }
 
-ul {margin: 0}
+ul {
+    margin: 0;
+    width: 100%;
+}
 
 h1 {
     font-size: 7rem;
@@ -39,6 +42,10 @@ h1 {
     border-top: 1px solid black;
     padding: 0.5rem;
     position: relative;
+}
+
+.done-task {
+    text-decoration: line-through;
 }
 
 .close-button {
@@ -77,8 +84,32 @@ ul li {
     padding-top: 0.5rem;
 }
 
+button {
+    opacity: 0;
+    position: absolute;
+    right: 3rem;
+    bottom: 0.6rem;
+    border: none;
+    padding: 0.3rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: black;
+    color: #F8F8F8;
+}
+
+.task:hover button {opacity: 1}
+
 /* Animación li */
 li {animation: aparecer 0.5s}
+h2 {
+    margin-top: 2rem;
+    animation: aparecer 0.5s
+}
 
 @keyframes aparecer {
     from {

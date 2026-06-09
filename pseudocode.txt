@@ -22,3 +22,10 @@ Estructura:
 
 - Contador tareas restantes
 
+EXTRA: Hacer una segunda lista de tareas completadas, que cuando se haga click en el botón, la tarea pase de una a otra
+
+- Crear useState array de tareas completadas, este se actualiza cuando se pulsa el botón, con la tarea concreta, y se refleja
+  en una lista de tareas completadas. Además se borra la tarea de la lista de tareas pendientes.
+
+- 
+

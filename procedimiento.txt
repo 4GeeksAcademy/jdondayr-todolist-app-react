@@ -1,0 +1,64 @@
+Procedimiento de mi to-do list:
+
+1. Creación de 4 useStates:
+
+    1.1. taskInputValue para controlar la entrada del input de tareas.
+    1.2. itemsLeft para el número de tareas que hay pendientes.
+    1.3. tasks como array en el que estarán las tareas pendientes.
+    1.4. completedTasks como array en el que estarán las tareas completadas.
+
+2. Creación de funciones:
+
+    2.1. addTask -> Función para añadir tareas.
+        - Comprueba que la tecla pulsada es "Enter" (va en un onKeyDown).
+        - Comprueba que el input de tareas no esté vacío y que no incluya ya la tarea que se desea introducir.
+        - Establece el valor de tasks con los valores que tuviera tasks + el valor actual del input.
+        - Restablece el valor del input.
+        - Añade uno al contador de tareas restantes.
+    
+    2.2. removeTaskFromTasks -> Función para eliminar la tarea de la lista de tareas pendientes. Parámetro -> índice de la tarea que se quiere eliminar (será la key interna).
+        - Comprueba que las tareas pendientes no sean > 0.
+        - Filtra las tareas, se guardan en el nuevo array todas las tareas cuya key no coincida con el índice introducido en el parámetro (la que queremos eliminar), de esta forma
+        obtenemos un array con las otras tareas.
+        - Establece tasks con ese array.
+        - Resta uno del contador de tareas pendientes.
+
+    2.3. removeTaskFromCompletedTasks -> Función para eliminar una tarea completada de la lista de tareas completadas. Parámetro -> índice de la tarea que queremos eliminar (key interna).
+        - Comprueba que las tareas pendientes no sean > 0.
+        - Filtra las tareas completadas en un nuevo array que tiene todas menos la que cuyo índice coincide con el índice de la que queremos eliminar.
+        - Establece las tareas completadas con el nuevo array.
+
+    2.4. completeTask -> Función que marca una tarea como completada. Parámetro -> índice de la tarea que se completa (key interna).
+        - Establece el array de tareas completadas con el valor del array + un filtrado de tareas que coja únicamente la tarea cuyo index coincida con la key.
+        - Ejecuta la función removeTaskFromTasks para eliminar esa tarea de la lista de tareas pendientes.
+
+    2.5. returnTaskToIncomplete -> Función que marca una tarea de nuevo como pendiente. Parámetro -> índice de la tarea que vuelve a estar pendiente (key interna).
+        - Establece el array de tareas con el valor del propio array + un filtrado de las tareas completadas que incluya únicamente la tarea cuyo índice coincide con la key.
+        - Ejecuta la función removeTaskFromCompletedTasks para eliminar la tarea de la lista de tareas completadas.
+        - Suma uno al contador de tareas pendientes (porque la tarea vuelve a esa lista).
+
+3. Listas de tareas en el DOM:
+
+    3.1. tasksList -> un map de tasks (array de tareas) para crear li's con:
+        - key: el índex del elemento que creamos (segundo parámetro del map).
+        - className: "task" (hecha en CSS).
+        - Contenido del li: 
+            1. task (elemento del map).
+            2. button con onClick -> completeTask
+            3. span con onClick -> removeTaskFromTasks
+
+    3.2. completedTasksList -> un map de completedTasks (array de tareas completadas) para crear li's con:
+        - key: el índex del elemento (segundo parámetro de map).
+        - className: "task done-task" (hechas en CSS).
+        - Contenido del li:
+            1. completedTask (elemento del map).
+            2. button onClick -> returnTaskToIncomplete
+            3. span con onClick -> removeTaskFromCompletedTasks
+
+4. return del componente:
+
+    1. El input de tareas para el usuario.
+    2. La lista de tareas pendientes.
+    3. El contador de tareas pendientes.
+    4. La lista de tareas completadas.
+    
